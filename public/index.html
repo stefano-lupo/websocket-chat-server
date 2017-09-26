@@ -1,9 +1,65 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<p> hi </p>
-
 <script src="script.js"></script>
-<input name="message" id="message" value="message" />
-<button id="send">send</button>
 
-<h1>Chat</h1>
-<div id="chatlog"></div>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+    #chat-div {
+        border: solid black 1px;
+        height:350px; 
+        overflow:auto;
+        -webkit-box-shadow: 5px 5px 34px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 34px -10px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 34px -10px rgba(0,0,0,0.75);
+    }
+    #chatlog {
+        list-style-type:none; 
+    
+    }
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    h4 {
+        display: inline
+    }
+    #avatar-pic {
+        width: 50px;
+        border-radius: 50%;
+        border: solid rgba(0,0,0,0.6) 1px;
+        margin: 5px;
+    }
+    #date-string {
+        text-align: right;
+        float:right;
+    }
+    #message-li {
+        padding:5px 0px 5px 0px
+    }
+</style>
+
+
+<div class="container-fluid">
+    <h1 class="text-center">The Worlds Worst Chat Room </h1>
+    <hr>
+
+    <h2>Join The Chat Room</h2>
+    <form id="join">
+        <input required placeholder="Enter your name" id="name" name="name" />
+        <input required placeholder="Avatar URL" id="avatar" name="avatar" />
+        <button class="btn btn-primary" type="submit" name="join_button" id="join_button">Join</button>
+    </form>
+
+    <h1>Chat</h1>
+    <div id="chat-div">
+        <ul id="chatlog"></ul>
+    </div>
+    <br>
+    <form id="send">
+        <textarea rows="4" cols="50" required disabled name="message" id="message" placeholder="Send a message"></textarea>
+        <button class="btn btn-danger disabled" type="submit" id="send-button">Send!</button>
+    </form>
+</div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
