@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "forever stop index.js; forever start index.js -o logs/stdout.log -l logs/forever.log"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "forever": "^0.15.3",
     "websocket": "^1.0.24"
   }
 }

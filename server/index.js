@@ -26,7 +26,7 @@ wsServer.on('request', function (r) {
     console.log((new Date()) + ' Connection accepted [' + connection.id + ']');
 
     messages.forEach(function(message) {
-        sendToAllClients(message);
+       connection.sendUTF(message);
     });
 
     // Envoked when a message is sent
@@ -38,7 +38,14 @@ wsServer.on('request', function (r) {
 
     // Envoked when client disconnects
     connection.on('close', function (reasonCode, description) {
-        clients.delete(connection.id);
+        message = {
+		name: 'Server',
+		avatar: "http://www.iconhot.com/icon/png/rrze/720/server-multiple.png",
+		message: connection.remoteAddress + ' has left the chat room',
+		date: new Date()
+	}
+	sendToAllClients(JSON.stringify(message));
+	clients.delete(connection.id);
         console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
     });
 });

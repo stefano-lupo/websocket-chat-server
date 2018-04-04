@@ -10,8 +10,8 @@ $(document).ready(function () {
         avatar = $("#avatar").val();
       
         // Connnect to Server
-        ws =  new WebSocket('ws://localhost:3000', 'echo-protocol');
-
+        ws =  new WebSocket('ws://34.248.185.70:3000', 'echo-protocol');
+	console.log(ws);
         // Send join messgae  
         ws.onopen = function() {
             var message = {
@@ -57,6 +57,9 @@ $(document).ready(function () {
 
         // Send the message object (serialized as a string)
         ws.send(JSON.stringify(message));
+
+	// Clear the message field
+	$('#message').val('');
     });  
 
     // Some markup for the messages
